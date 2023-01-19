@@ -4,7 +4,7 @@
     <b>
         <h2>LIST MATA PELAJARAN </h2>
         <a href="/mapel/create" class="button-primary"> TAMBAH DATA </a>
-        <table calPadding="10">
+        <table calPadding="10" border="1">
             <tr>
                 <th>NO</th>
                 <th>NAMA MAPEL</th>

@@ -3,33 +3,31 @@
 <center>
     <br>
     <h2>TAMBAH NAMA SISWA</h2>
-    <form method="POST" action="/siswa/store">
+    <form method="POST" action="/mengajar/store">
         @csrf
         <table width="50%">
             <tr>
-                <td class="bar">NIS</td>
+                <td class="bar">GURU</td>
                 <td class="bar">
-                    <input type="text" name="nis">
+                    <select name="guru_id">
+                        <option></option>
+                        @foreach ($guru as $g)
+                            <option value="{{ $g->id }}">{{ $g->nama_guru }}</option>
+                        @endforeach
+                    </select>
                 </td>
             </tr>
             <tr>
-                <td class="bar">NAMA SISWA</td>
+                <td class="bar">MAPEL</td>
                 <td class="bar">
-                    <input type="text" name="nama_siswa">
+                    <select name="mapel_id">
+                        <option></option>
+                        @foreach ($mapel as $m)
+                            <option value="{{ $m->id }}">{{ $m->nama_mapel }}</option>
+                        @endforeach
+                    </select>
                 </td>
-            </tr>
-            <tr>
-                <td class="bar">JENIS KELAMIN</td>
-                <td class="bar">
-                    <input type="radio" name="jk" value="L">Laki-Laki
-                    <br>
-                    <input type="radio" name="jk" value="P">Perempuan
-                </td>
-            </tr>
-            <tr>
-                <td class="bar">ALAMAT</td>
-                <td class="bar"><textarea name="alamat" cols="30" rows="5"></textarea></td>
-            </tr>
+            </tr>       
             <tr>
                 <td class="bar">KELAS</td>
                 <td class="bar">
@@ -39,12 +37,6 @@
                             <option value="{{ $k->id }}">{{ $k->nama_kelas }}</option>
                         @endforeach
                     </select>
-                </td>
-            </tr>
-            <tr>
-                <td class="bar">PASSWORD</td>
-                <td class="bar">
-                    <input type="password" name="password">
                 </td>
             </tr>
             <tr>

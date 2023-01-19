@@ -4,7 +4,7 @@
     <b>
         <h2>LIST NAMA KELAS </h2>
         <a href="/kelas/create" class="button-primary"> TAMBAH DATA </a>
-        <table calPadding="10">
+        <table calPadding="10" border="1">
             <tr>
                 <th>NO</th>
                 <th>NAMA KELAS</th>

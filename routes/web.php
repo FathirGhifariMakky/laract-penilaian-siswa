@@ -7,6 +7,8 @@ use App\Http\Controllers\GuruController;
 use App\Http\Controllers\JurusanController;
 use App\Http\Controllers\KelasController;
 use App\Http\Controllers\MapelController;
+use App\Http\Controllers\MengajarController;
+use App\Http\Controllers\NilaiController;
 use App\http\Controllers\SiswaController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -55,6 +57,22 @@ Route::prefix('/siswa')->group(function(){
     Route::post('/update/{siswa}', [SiswaController::class,'update']);
     Route::get('/destroy/{siswa}', [SiswaController::class,'destroy']);
 });
+Route::prefix('/mengajar')->group(function(){
+    Route::get('/index', [MengajarController::class,'index']);
+    Route::get('/create', [MengajarController::class,'create']);
+    Route::post('/store', [MengajarController::class, 'store']);
+    Route::get('/edit/{mengajar}', [MengajarController::class, 'edit']);
+    Route::post('/update/{mengajar}', [MengajarController::class, 'update']);
+    Route::get('/destroy/{mengajar}', [MengajarController::class, 'destroy']);
+});
+Route::prefix('/nilai')->group(function(){
+    Route::get('/index', [NilaiController::class, 'index']);
+    Route::get('/create', [NilaiController::class, 'create']);
+    Route::post('/store', [NilaiController::class, 'store']);
+    Route::get('/edit/{nilai}', [NilaiController::class, 'edit']);
+    Route::post('/update/{nilai}', [NilaiController::class, 'update']);
+    Route::get('/destroy/{nilai}', [NilaiController::class, 'destroy']);
+});
 
 Route::get('/home',[IndexController::class,'home']);
 Route::get('/guru/home',[IndexController::class,'home']);
@@ -62,6 +80,8 @@ Route::get('/jurusan/home',[IndexController::class,'home']);
 Route::get('/kelas/home',[IndexController::class,'home']);
 Route::get('/mapel/home',[IndexController::class,'home']);
 Route::get('/siswa/home',[IndexController::class,'home']);
+Route::get('/mengajar/home',[IndexController::class,'home']);
+Route::get('/nilai/home', [IndexController::class, 'home']);
 
 Route::get('/', function () {
     return Inertia::render('Welcome', [

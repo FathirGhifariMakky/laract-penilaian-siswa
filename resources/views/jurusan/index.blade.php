@@ -4,7 +4,7 @@
     <b>
         <h2>LIST NAMA JURUSAN</h2>
         <a href="/jurusan/create" class="button-primary"> TAMBAH DATA </a>
-        <table calPadding="10">
+        <table calPadding="10" border="1">
             <tr>
                 <th>NO</th>
                 <th>NAMA JURUSAN</th>

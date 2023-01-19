@@ -4,7 +4,7 @@
     <b>
         <h2>LIST DATA GURU</h2>
         <a href="/guru/create" class="button-primary"> TAMBAH DATA </a>
-        <table calPadding="10">
+        <table calPadding="10" border="1">
             <tr>
                 <th>NO</th>
                 <th>NIP</th>

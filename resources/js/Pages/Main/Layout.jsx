@@ -23,7 +23,7 @@ export default function Layout({children}){
             <a href="/kelas/index">KELAS</a>
             <a href="/siswa/index">SISWA</a>
             <a href="/mapel/index">MATA PELAJARAN</a>
-            <a href="/mengajar/index">MENGAJAK</a>
+            <a href="/mengajar/index">MENGAJAR</a>
             </>
         {/* ) : ( */}
             <a href="/nilai/index">NILAI</a>
