@@ -53,7 +53,7 @@ class NilaiController extends Controller
             'uas' => 'required|numeric',
             'uts' => 'required|numeric'
         ]);
-        $data_nilai['na'] = ($request->uh + $request->uas + $request->uts) /3;
+        $data_nilai['na'] = round(($request->uh + $request->uas + $request->uts) /3);
         Nilai::create($data_nilai);
         return redirect('/nilai/index')->with('success', 'Data Nilai berhasil Ditambah');
 
@@ -103,7 +103,7 @@ class NilaiController extends Controller
             'uas' => 'required|numeric',
             'uts' => 'required|numeric'
         ]);
-        $data_nilai['na'] = ($request->uh + $request->uas + $request->uts)/3;
+        $data_nilai['na'] = round(($request->uh + $request->uas + $request->uts)/3);
 
         $nilai->update($data_nilai);
         return redirect('/nilai/index')->with('success', 'Data Nilai berhasil Ditambah');

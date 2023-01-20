@@ -13,6 +13,14 @@ use App\http\Controllers\SiswaController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
+Route::controller(IndexController::class)->group(function(){    
+    Route::get('/','index');
+    Route::post('/login/admin', 'loginAdmin');
+    Route::post('/login/siswa', 'loginSiswa');
+    Route::post('/login/guru', 'loginGuru');
+    Route::get('home', 'home');
+    Route::get('logout','logout');
+});
 Route::prefix('/guru')->group(function() {
     Route::get('/index', [GuruController::class, 'index']);
     Route::get('/create', [GuruController::class, 'create']);
@@ -83,14 +91,14 @@ Route::get('/siswa/home',[IndexController::class,'home']);
 Route::get('/mengajar/home',[IndexController::class,'home']);
 Route::get('/nilai/home', [IndexController::class, 'home']);
 
-Route::get('/', function () {
-    return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
-});
+// Route::get('/', function () {
+//     return Inertia::render('Welcome', [
+//         'canLogin' => Route::has('login'),
+//         'canRegister' => Route::has('register'),
+//         'laravelVersion' => Application::VERSION,
+//         'phpVersion' => PHP_VERSION,
+//     ]);
+// });
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
