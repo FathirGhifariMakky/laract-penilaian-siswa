@@ -18,9 +18,17 @@ class NilaiController extends Controller
     public function index()
     {
         //
-        return view('nilai.index',[
-            'nilai' => Nilai::all()
-        ]);
+        if (session('user')->role == 'guru'){
+            $nilai = Nilai::whereHas('mengajar', function($query){
+                $query->where('guru_id', session('user')->id);
+            })->get();
+        } else {
+            $nilai = Nilai::where('siswa_id', session('user')->id)->get();
+        }
+        return view('nilai.index', ['nilai'=> $nilai]);
+        // return view('nilai.index',[
+        //     'nilai' => Nilai::all()
+        // ]);
     }
 
     /**
